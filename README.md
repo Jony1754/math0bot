@@ -1,6 +1,6 @@
 # Math0bot
 
-![Math0bot](./logo_size.png)
+![Math0bot](logo_size.jpg?raw=true "Logo")
 Foobar is a Python library for dealing with word pluralization.
 
 ## INSTALACIÓN
