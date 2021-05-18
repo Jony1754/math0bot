@@ -1,0 +1,10 @@
+
+## PAQUETES REQUERIDOS ##
+autopep8==1.5.4
+psutil==5.8.0
+pycodestyle==2.6.0
+pypiwin32==223
+pywin32==300
+toml==0.10.2
+vboxapi==1.0
+win10toast==0.9
