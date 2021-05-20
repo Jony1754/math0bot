@@ -7,6 +7,9 @@
 
 def get_subsequence(sequence, starting_index=0):
     subsequence = []
+    if starting_index > len(sequence) - 1:
+        return ValueError
+
     for item in range(starting_index, len(sequence) - 1, 1):
         curr = sequence[item]
         sig = sequence[item + 1]
@@ -17,7 +20,7 @@ def get_subsequence(sequence, starting_index=0):
             subsequence.append(suma)
             break
 
-    for subitem in range(0, len(subsequence) - 1, 1):
+    for subitem in range(0, len(subsequence), 1):
         curr2 = subsequence[len(subsequence) - 1]
         sig2 = subsequence[len(subsequence) - 2]
         suma2 = curr2 + sig2
@@ -27,8 +30,7 @@ def get_subsequence(sequence, starting_index=0):
     return subsequence
 
 
-# main([0, 2, 3, 4, 5, 7, 11, 13, 18, 22, 28], 0)
-# main([1, 2, 3, 4, 5, 6, 7, 8], 0)
+# print(get_subsequence([2, 3, 4, 5, 7, 11, 13, 18, 22, 29], 1))
 # PARA EL EJEMPLO SE A;ADE ASID
 # 0 2 2
 # 0 2 2 4 -> 6 NO ESTA Y AQUI SE DETIENE
