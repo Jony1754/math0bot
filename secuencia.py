@@ -5,7 +5,7 @@
 # Si la nueva sumaa tambien esta en la secuencia pero una de las parejas es menor que el ultimo elemento de la subsecuencia entonces no se añade.
 
 
-def main(sequence, starting_index=0):
+def get_subsequence(sequence, starting_index=0):
     subsequence = []
     for item in range(starting_index, len(sequence) - 1, 1):
         curr = sequence[item]
@@ -27,7 +27,8 @@ def main(sequence, starting_index=0):
     return subsequence
 
 
-main([0, 2, 3, 4, 5, 7, 11, 13, 18, 22, 28], 1)
+# main([0, 2, 3, 4, 5, 7, 11, 13, 18, 22, 28], 0)
+# main([1, 2, 3, 4, 5, 6, 7, 8], 0)
 # PARA EL EJEMPLO SE A;ADE ASID
 # 0 2 2
 # 0 2 2 4 -> 6 NO ESTA Y AQUI SE DETIENE
