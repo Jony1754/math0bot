@@ -8,11 +8,25 @@ dispatcher = updater.dispatcher
 
 def help(update, context):
     context.bot.send_message(
-        chat_id=update.effective_chat.id, text="🤖 Hola, este bot fue creado por los mejores estudiantes de Ingeniería de sistemas de la Universidad Del Norte 👨🏻‍🎓👨🏻‍🎓👨🏿‍🎓. A continuación verás los comandos disponibles. \n1. 📉 /grafo V E K: Recibe como datos de entrada la cantidad de vértices de un grafo, la cantidad de aristas y el número máximo de aristas por vértice.\n 2. ♻ /recurrencia a b c d: Recibe los coeficientes de un polinomio caracteristico para una relacion de recurrencia \n3. 📏 /serie a b c d: Recibe una serie y determina una subsecuencia de la sucesion de *fibonacci*")
+        chat_id=update.effective_chat.id, text="🤖 Hola, este bot fue creado por los mejores estudiantes de Ingeniería de sistemas de la Universidad Del Norte 👨🏻‍🎓👨🏻‍🎓👨🏿‍🎓. A continuación verás los comandos disponibles. \n1. 📉 /grafo V E K: Recibe como datos de entrada la cantidad de vértices de un grafo, la cantidad de aristas y el número máximo de aristas por vértice.\n 2. ♻ /recurrencia a b c d: Recibe los coeficientes de un polinomio caracteristico para una relacion de recurrencia \n3. 📏 /serie a b c d: Recibe una secuencia ORDENADA y determina una subsecuencia de la sucesion de *fibonacci*")
+
+
+def secuencia(update, context):
+    pass
+
+
+def is_ascendente(sequence):
+    swp = True
+    for element in range(0, len(sequence) - 1, 1):
+        if sequence[element] < sequence[element + 1]:
+            swp = True
+        elif sequence[element] > sequence[element + 1]:
+            swp = False
+            break
+    return swp
 
 
 def graph(update, context):
-    print(context.args)
     if len(context.args) < 3:
         update.message.reply_text("🤖 Debes ingresar tres valores G(V, E, K)")
         return
