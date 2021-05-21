@@ -15,32 +15,31 @@ def isComplex(vector):
 
 
 def solucion2(vector):
-    listafea = np.roots(vector)
-    print(listafea)
-    if(isComplex(listafea)):
+    raices = np.roots(vector)
+    print(raices)
+    if(isComplex(raices)):
         fig = plt.figure()
         fig.text(0.5, 0.5, 'No hay solución en el plano real', horizontalalignment='center',
                  verticalalignment='center', fontsize='xx-large', wrap=True)
         fig.savefig('formula.png')
+        return False
     else:
-        listabonita = []
-        for i in listafea:
-            listabonita.append(np.round(i.real, 4))
+        raices_reales = []
+        for i in raices:
+            raices_reales.append(np.round(i.real, 4))
         cad = []
-        listabonita = sorted(listabonita)
-        nu = len(listabonita)
-        print(listabonita)
+        raices_reales = sorted(raices_reales)
         r = 0
-        var = 0
-        for j in listabonita:
+        cont_var = 0
+        for j in raices_reales:
             if(j != r):
-                for k in range(listabonita.count(j)):
-                    var += 1
+                for k in range(raices_reales.count(j)):
+                    cont_var += 1
                     if(k != 0):
-                        cad.append('c_'+str(var)+' \cdot '+"n^" +
+                        cad.append('c_'+str(cont_var)+' \cdot '+"n^" +
                                    str(k)+" \cdot "+str(j)+"^n")
                     else:
-                        cad.append('c_'+str(var)+" \cdot "+str(j)+"^n ")
+                        cad.append('c_'+str(cont_var)+" \cdot "+str(j)+"^n ")
             r = j
         fn = ""
         for i in cad:
@@ -52,8 +51,4 @@ def solucion2(vector):
         fig.text(0.5, 0.5, str(fn), horizontalalignment='center',
                  verticalalignment='center', fontsize='xx-large', wrap=True)
         fig.savefig('formula.png')
-
-
-# solucion2(vector)
-# vector=np.roots(vector)
-# print(isComplex(vector))
+        return True 

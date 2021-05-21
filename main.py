@@ -3,7 +3,7 @@ from telegram.ext import CommandHandler
 import telegram
 from my_graph import graph_img
 from secuencia import get_subsequence
-from funcion import solucion2
+from recurrencia import solucion2
 import random
 updater = Updater(
     token='1822223787:AAEl8_-tM3vxxTsTPSHqXQy4Ha0DW4tMdIc', use_context=True)
@@ -30,12 +30,14 @@ def recurrencia(update, context):
             f"😒 Ingresa por lo menos 2 <b>coeficientes</b> para poder generar una función recurrente", parse_mode=telegram.ParseMode.HTML)
         return
     else:
-        solucion2(arguments)
-        update.message.reply_text(
-            f"Hey! Mira lo que encontré 🤓", parse_mode=telegram.ParseMode.HTML)
-        context.bot.sendPhoto(chat_id=update.effective_chat.id,
-                              photo=open("formula.png", "rb"))
-
+        if solucion2(arguments):
+            update.message.reply_text(
+                f"Hey! Mira lo que encontré 🤓", parse_mode=telegram.ParseMode.HTML)
+            context.bot.sendPhoto(chat_id=update.effective_chat.id,
+                                photo=open("formula.png", "rb"))
+        else: 
+            update.message.reply_text(
+                f"Lo siento, no tiene solución en el plano real.😓😢 ", parse_mode=telegram.ParseMode.HTML)
 
 def secuencia(update, context):
     # CONVERTIR LOS ELEMENTOS DE LOS ARGUMENTOS A NUMEROS, VALIDAR PRIMERO
