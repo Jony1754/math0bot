@@ -1,9 +1,8 @@
+from typing import DefaultDict
 import numpy as np
 import matplotlib.pyplot as plt
 plt.rcParams['pgf.texsystem'] = 'pdflatex'
 plt.rcParams['text.usetex'] = True
-# vector=[1,-1,-3,5,-2]
-# vector=[1, -1,-1]
 
 
 def isComplex(vector):
@@ -51,4 +50,6 @@ def solucion2(vector):
         fig.text(0.5, 0.5, str(fn), horizontalalignment='center',
                  verticalalignment='center', fontsize='xx-large', wrap=True)
         fig.savefig('formula.png')
+        plt.clf()
+        plt.close()
         return True 

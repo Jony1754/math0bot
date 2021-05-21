@@ -37,7 +37,7 @@ def connect_alone(G, k, E):
 
 
 def graph_img(v, k, E):
-
+    plt.clf()
     G = nx.complete_graph(v)
     print("ANTES")
     print("Edges: ", len(G.edges))
@@ -73,4 +73,5 @@ def graph_img(v, k, E):
     plt.tight_layout()
     plt.savefig("graph.png", dpi=620)
     plt.clf()
+    plt.close()
     return vecinos
