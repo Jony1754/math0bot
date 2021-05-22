@@ -16,8 +16,6 @@ def help(update, context):
 
 
 def recurrencia(update, context):
-    # arguments = [int(element) for element in context.args]
-    # print(arguments)
     for item in context.args:
         if not item.isnumeric() and '-' not in item:
             update.message.reply_text(
@@ -84,9 +82,6 @@ def graph(update, context):
     if len(context.args) < 3:
         update.message.reply_text("🤖 Debes ingresar tres valores G(V, E, K)")
         return
-    # else:
-    #     update.message.reply_text(
-    #         "/grafo V E K: Recibe como datos de entrada la cantidad de vértices (V) de un grafo, la cantidad de aristas (E) y el número máximo de aristas por vértice (K).")
     for item in context.args:
         if not item.isnumeric():
             update.message.reply_text(
@@ -103,7 +98,6 @@ def graph(update, context):
     update.message.reply_text(cadena)
     context.bot.sendPhoto(chat_id=update.effective_chat.id,
                           photo=open("graph.png", "rb"))
-
 
 dispatcher.add_handler(CommandHandler('ayuda', help))
 dispatcher.add_handler(CommandHandler('grafo', graph))
